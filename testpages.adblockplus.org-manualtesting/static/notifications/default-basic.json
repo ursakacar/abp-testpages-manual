@@ -1,0 +1,16 @@
+{
+  "notifications": [
+    {
+      "id": "default_basic",
+      "title": {
+        "en-US": "Test DEFAULT Notification",
+        "de": "DE Test DEFAULT Notification"
+      },
+      "message": {
+        "en-US": "This is a DEFAULT notification.",
+        "de": "DE This is a DEFAULT notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

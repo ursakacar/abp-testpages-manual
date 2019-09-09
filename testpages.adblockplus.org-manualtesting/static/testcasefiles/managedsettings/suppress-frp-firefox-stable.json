@@ -1,0 +1,8 @@
+{
+  "name": "{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}",
+  "description": "Managed storage manifest for Adblock Plus",
+  "type": "storage",
+  "data": {
+    "suppress_first_run_page": true
+  }
+}

@@ -1,0 +1,39 @@
+title = $popup Exception
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<script>
+function do_popup()
+{
+   window.open("/en/exceptions/popup")
+}
+</script>
+
+<section class="site-panel">
+  <h2>$popup Exception</h2>
+  <p>Check that usage of the $popup filter option in an exception filter works as expected.</p>
+  <p>With the filter(s) displayed below each test case added to ABP (or with the testcase subscription installed and active), the popup should not be blocked and open succesfully.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Link-based popup</h2>
+  <div class="testcase-container">
+    <a href="/en/exceptions/popup" target="_blank">Link popup</a><br><br>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/en/exceptions/popup^$popup</pre>
+  <pre>@@||{{ site_url|strip_proto }}/en/exceptions/popup^$popup</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Script-based popup</h2>
+  <div class="testcase-container">
+    <button onclick="do_popup();">window.open() popup</button>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/en/popuptarget^$popup</pre>
+  <pre>@@||{{ site_url|strip_proto }}/en/filters/popup-exception^$popup</pre>
+</section>

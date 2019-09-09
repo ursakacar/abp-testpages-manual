@@ -1,0 +1,12 @@
+^build$
+^dist$
+^.tox$
+^htmlcov$
+^.coverage$
+^.pytest_cache$
+
+syntax: glob
+*.pyc
+*.pyo
+.cache
+.idea/

@@ -1,0 +1,56 @@
+title = $ping
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+
+<script>
+function do_ping() {
+  var button = document.getElementById("ping-button");
+  button.parentNode.removeChild(button);
+
+  pagelog("Calling navigator.sendBeacon()");
+  var res = navigator.sendBeacon("/en/filters/ping", "Testdata" );
+  pagelog("navigator.sendBeacon() called.");
+
+  if (res)
+    pagelog("navigator.sendBeacon() returned true.");
+  else
+    pagelog("Beacon could not be queued.");
+
+}
+</script>
+
+<section class="site-panel">
+  <h2>$ping</h2>
+  <p>Check that usage of the $ping filter option is working as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the pings triggered in the test case panels below should be blocked.</p>
+  <p>Note: Browsers will always return true if the ping is successfully queued, not if sent. Check with the Adblock Plus DevTools panel to check if it was actually blocked.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-row"><h3>Ping</h3>
+      <a href="http://example.com" target="_blank" ping="/en/filters/ping">Link based ping</a>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}/*^$ping</pre>
+</section>
+
+<section class="site-panel">
+  <h2>navigator.sendBeacon()</h2>
+  <div class="testcase-container">
+    <div class="testcase-row"><h3>Ping</h3>
+      <div id="testcase-fo-ping">
+        <button id="ping-button" onclick="do_ping()">Send Ping</button>
+        <div id="testcase-output"></div>
+      </div>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}/*^$ping</pre>
+</section>

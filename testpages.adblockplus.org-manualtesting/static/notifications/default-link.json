@@ -1,0 +1,19 @@
+{
+  "notifications": [
+    {
+      "id": "default_link",
+      "links": [
+        "contribute"
+      ],
+      "title": {
+        "en-US": "Test DEFAULT Notification",
+        "de": "DE Test DEFAULT Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>Link</a> DEFAULT notification.",
+        "de": "DE This is a <a>Link</a> DEFAULT notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

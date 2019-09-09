@@ -1,0 +1,20 @@
+{
+  "notifications": [
+    {
+      "id": "normal_link",
+      "severity": "normal",
+      "links": [
+        "contribute"
+      ],
+      "title": {
+        "en-US": "Test NORMAL Notification",
+        "de": "DE Test NORMAL Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>test</a> NORMAL notification.",
+        "de": "DE This is a <a>test</a> NORMAL notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

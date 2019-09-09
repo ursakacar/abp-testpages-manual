@@ -1,0 +1,17 @@
+{
+  "notifications": [
+    {
+      "id": "relentless_basic",
+      "severity": "relentless",
+      "title": {
+        "en-US": "Test RELENTLESS Notification",
+        "de": "DE Test RELENTLESS Notification"
+      },
+      "message": {
+        "en-US": "This is a RELENTLESS notification.",
+        "de": "DE This is a RELENTLESS notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

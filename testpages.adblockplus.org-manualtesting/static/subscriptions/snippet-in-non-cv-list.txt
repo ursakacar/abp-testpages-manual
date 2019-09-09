@@ -1,0 +1,6 @@
+[Adblock Plus 3.1]
+! Version: 201907052110
+! Title: Snippet in Non CV
+! Last modified: 05 Jul 2019 21:10 UTC
+
+testpages.adblockplus.org#$#log Test

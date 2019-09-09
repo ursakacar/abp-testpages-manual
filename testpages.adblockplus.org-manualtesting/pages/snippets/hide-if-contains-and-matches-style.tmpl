@@ -1,0 +1,34 @@
+title = hide-if-contains-and-matches-style
+template = testcase
+
+<section class="site-panel">
+  <h2>hide-if-contains-and-matches-style</h2>
+  <p>Check that basic usage of the hide-if-contains-and-matches-style snippet is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-contains-and-matches-style AdHICAMS div[id] span.label /./ 'display: inline;'</pre>
+</section>
+
+<script>
+  setTimeout(() =>
+  {
+    let ad = document.createElement("div");
+    ad.id = Math.random().toString(36).substring(2);
+    ad.className = "testcase-contentaside stripes-red";
+    ad.innerHTML = "<div><span>Check this!</span><span class='label'>AdHICAMS</span></div>";
+    document.getElementById("target").appendChild(ad);
+
+    let result = document.createElement("div");
+    result.id = Math.random().toString(36).substring(2);
+    result.className = "testcase-contentaside stripes-green";
+    result.innerHTML = "<div><span>The Adventures of Tom Sawyer</span><span class='label' style='display: none'>AdHICAMS</span></div>";
+    document.getElementById("target").appendChild(result);
+  },
+  500);
+</script>

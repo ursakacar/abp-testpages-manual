@@ -1,0 +1,20 @@
+{
+  "notifications": [
+    {
+      "id": "information_link",
+      "severity": "information",
+      "links": [
+        "adblock_browser_promotion_0"
+      ],
+      "title": {
+        "en-US": "Test INFORMATION Notification",
+        "de": "DE Test INFORMATION Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>test</a> INFORMATION notification.",
+        "de": "DE This is a <a>test</a> INFORMATION notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

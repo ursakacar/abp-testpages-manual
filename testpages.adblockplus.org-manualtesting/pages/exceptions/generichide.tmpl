@@ -1,0 +1,31 @@
+title = $generichide Exception
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options")
+] %}
+
+<section class="site-panel">
+  <h2>$generichide Exception</h2>
+  <p>Check that usage of the $generichide filter option in an exception filter works as expected.</p>
+  <p>With the filter(s) displayed below each test case added to ABP (or with the testcase subscription installed and active), the red element should remain hidden and the green element should be displayed.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>Page</h3>
+      <div class="target-green testcase-generichide-generic">Target of generic filter</div>
+      <div class="target-red testcase-generichide-notgeneric blocked">Target of specific filter</div>
+    </div>
+    <div class="testcase-row">
+      <h3>Framed</h3>
+      <iframe src="/testcasefiles/generichide/frame.html" style="width: 100%;"></iframe>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>##.testcase-generichide-generic</pre>
+  <pre>{{ site_url|domain }}##.testcase-generichide-notgeneric</pre>
+  <pre>@@||{{ site_url|strip_proto }}/en/exceptions/generichide$generichide</pre>
+</section>

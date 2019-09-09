@@ -1,0 +1,17 @@
+{
+  "notifications": [
+    {
+      "id": "information_basic",
+      "severity": "information",
+      "title": {
+        "en-US": "Test INFORMATION Notification",
+        "de": "DE Test INFORMATION Notification"
+      },
+      "message": {
+        "en-US": "This is a INFORMATION notification.",
+        "de": "DE This is a INFORMATION notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

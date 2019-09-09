@@ -1,0 +1,127 @@
+title = Element Hiding
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Cheatsheet - Element Hiding", "https://adblockplus.org/filter-cheatsheet#elementhiding"),
+] %}
+
+<section class="site-panel">
+  <h2>Element Hiding</h2>
+  <p>Check that basic element hiding functionality is working as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the red target elements in each test case panel should be hidden.</p>
+</section>
+
+<section class="site-panel">
+  <h2>ID Selector</h2>
+  <div class="testcase-container">
+    <div id="testcase-eh-id" class="testcase-contentaside stripes-red">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}###testcase-eh-id</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Class Selector</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red testcase-eh-class">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##.testcase-eh-class</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Descendant Selector</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red testcase-eh-descendant">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##.testcase-container > .testcase-eh-descendant</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Sibling Selector</h2>
+  <div class="testcase-container">
+    <div class="testcase-eh-sibling"></div>
+    <div class="testcase-contentaside stripes-red testcase-eh-sibling-target">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##.testcase-eh-sibling + .testcase-eh-sibling-target</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Attribute Selector 1</h2>
+  <div class="testcase-container">
+    <table height="100" width="100" class="testcase-contentaside stripes-red testcase-eh">
+      <tr><td>Target</td></tr>
+    </table>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##table[height="100"][width="100"]</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Attribute Selector 2</h2>
+  <div class="testcase-container">
+    <a href="http://testcase-attribute.com/" class="testcase-contentaside stripes-red">Target</a>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##a[href="http://testcase-attribute.com/"]</pre>
+</section>
+
+
+<section class="site-panel">
+  <h2>Attribute Selector 3</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red" style="width:199px;height:51px;">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##div[style="width:199px;height:51px;"]</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Starts with Selector 1</h2>
+  <div class="testcase-container">
+    <a href="http://testcase-attributestartswith.com/test" class="testcase-contentaside stripes-red">Target</a>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##a[href^="http://testcase-attributestartswith.com/"]</pre>
+</section>
+
+
+<section class="site-panel">
+  <h2>Starts with Selector 2</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red" style="width:201px;height:51px; color: white;">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##div[style^="width:201px;height:51px;"]</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Ends with Selector</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red" style="color:white;width:202px;height:51px;">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##div[style$="width:202px;height:51px;"]</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Contains Selector</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-red" style="width:203px;height:51px;color:white;">Target</div>
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##div[style*="width:203px;height:51px;"]</pre>
+</section>

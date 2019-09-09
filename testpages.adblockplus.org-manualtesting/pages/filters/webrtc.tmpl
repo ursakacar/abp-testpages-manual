@@ -1,0 +1,56 @@
+title = $webrtc
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options") 
+] %}
+
+<section class="site-panel">
+  <h2>$webrtc</h2>
+  <p>Check that usage of the $webrtc filter option works as expected.</p>
+  <p>With the filter displayed below, the test case should report that the connection was blocked.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>RTCPeerConnection</h3>
+      <p id="testcase-output">Opening connection...</p>
+      <p id="testcase-output-expected" class="target-green">Connection was blocked.</p>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>$webrtc,domain={{ site_url|domain }}</pre>
+</section>
+
+<script>
+  do_test();
+  
+  function do_test() {
+    if (typeof RTCPeerConnection == 'undefined') {
+      if (typeof webkitRTCPeerConnection == 'undefined') {
+        let output = document.getElementById("testcase-output")
+        output.innerHTML = "This test case is not supported in this browser.";
+        return;
+      }
+      RTCPeerConnection = webkitRTCPeerConnection;
+    }
+    var connection = new RTCPeerConnection({iceServers: [{urls: ["stun:example.com"]}]});
+    setTimeout(function(){check(connection)}, 500)
+  }
+
+  function check(connection) {
+    let result = document.getElementById("testcase-output")
+
+    // If blocked by ABP, the signalingState is quickly set to "closed".
+    // When not blocked by ABP, the signalingState stays as "stable" for awhile.
+    if (connection.signalingState === "closed") {
+      result.innerHTML = "Connection was blocked.";
+      result.className = "target-green";
+    } else {
+      result.innerHTML = "Connection was not blocked.";
+      result.className = "target-red";
+    }
+  }
+</script>

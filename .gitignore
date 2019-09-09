@@ -1,0 +1,9 @@
+/build/
+/dist/
+/.tox/
+/.pytest_cache/
+/.coverage
+*.pyc
+*.pyo
+htmlcov/
+.idea/

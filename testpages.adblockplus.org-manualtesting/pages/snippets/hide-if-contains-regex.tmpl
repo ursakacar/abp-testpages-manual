@@ -1,0 +1,41 @@
+title = hide-if-contains
+template = testcase
+
+<section class="site-panel">
+  <h2>hide-if-contains regex</h2>
+  <p>Check that basic usage of the hide-if-contains snippet with regex is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <p>The two red elements should be hidden. The green element should not be.</p>
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-contains /HICRETarget[1-2]/ p[id]</pre>
+</section>
+
+<script>
+  setTimeout(() =>
+  {
+    let ad1 = document.createElement("p");
+    ad1.id = Math.random().toString(36).substring(2);
+    ad1.className = "testcase-contentaside stripes-red"
+    ad1.innerHTML = "<div>HICRETarget1</div>";
+    document.getElementById("target").appendChild(ad1);
+
+    let ad2 = document.createElement("p");
+    ad2.id = Math.random().toString(36).substring(2);
+    ad2.className = "testcase-contentaside stripes-red"
+    ad2.innerHTML = "<div>HICRETarget2</div>";
+    document.getElementById("target").appendChild(ad2);
+
+    let ad3 = document.createElement("p");
+    ad3.id = Math.random().toString(36).substring(2);
+    ad3.className = "testcase-contentaside stripes-green"
+    ad3.innerHTML = "<div>HICRETarget3</div>";
+    document.getElementById("target").appendChild(ad3);
+  },
+  500);
+</script>

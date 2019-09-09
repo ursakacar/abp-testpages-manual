@@ -1,0 +1,8 @@
+{
+  "name": "devbuild@adblockplus.org",
+  "description": "Managed storage manifest for Adblock Plus",
+  "type": "storage",
+  "data": {
+    "suppress_first_run_page": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "notifications": [
+    {
+      "id": "links_1_desktop",
+      "severity": "normal",
+      "links": [
+        "contribute"
+      ],
+      "title": {
+        "en-US": "Test 1 Link Notification",
+        "de": "DE Test 1 Link Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>Link1</a> notification.",
+        "de": "DE This is a <a>Link1</a> notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

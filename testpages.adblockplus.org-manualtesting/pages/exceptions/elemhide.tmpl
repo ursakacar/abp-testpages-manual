@@ -1,0 +1,26 @@
+title = $elemhide Exception
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<section class="site-panel">
+  <h2>$elemhide Exception</h2>
+  <p>Check that usage of the $elemhide filter option works as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the red target elements in each test case panel should be hidden while any green elements should not be hidden.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-contentaside stripes-green testcase-ex-elemhide">Target</div>
+    <div class="testcase-contentaside stripes-green testcase-ex-elemhide">Target</div>
+    <img class="testcase-contentaside blocked" src="/testcasefiles/elemhide/image.jpg">
+      <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}##.testcase-ex-elemhide</pre>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/elemhide/image.jpg</pre>
+  <pre>@@{{ site_url|strip_proto }}/en/exceptions/elemhide^$elemhide</pre>
+</section>

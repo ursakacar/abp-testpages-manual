@@ -1,0 +1,43 @@
+title = hide-if-shadow-contains regex
+template = testcase
+
+<section class="site-panel">
+  <h2>hide-if-shadow-contains regex</h2>
+  <p>Check that basic usage of the hide-if-shadow-contains snippet with regex is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <p>Targets 1 and 2 should be hidden. 3 should not be hidden.</p>
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+    <div></div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-shadow-contains '/HISCRETarget[1-2]/' div</pre>
+</section>
+
+<script>
+  setTimeout(() =>
+  {
+    let ad = document.createElement("p");
+    ad.id = Math.random().toString(36).substring(2);
+    ad.className = "testcase-contentaside stripes-red"
+    ad.innerHTML = "<div>HISCRETarget1</div>";
+    let shadowRoot = document.getElementById("target").lastElementChild.attachShadow({mode: "closed"});
+    shadowRoot.appendChild(ad);
+
+    let ad2 = document.createElement("p");
+    ad2.id = Math.random().toString(36).substring(2);
+    ad2.className = "testcase-contentaside stripes-red"
+    ad2.innerHTML = "<div>HISCRETarget2</div>";
+    shadowRoot.appendChild(ad2);
+
+    let ad3 = document.createElement("p");
+    ad3.id = Math.random().toString(36).substring(2);
+    ad3.className = "testcase-contentaside stripes-green"
+    ad3.innerHTML = "<div>HISCRETarget3</div>";
+    document.getElementById("target").appendChild(ad3);
+  },
+  500);
+</script>

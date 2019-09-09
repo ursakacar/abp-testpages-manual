@@ -1,0 +1,26 @@
+title = $subdocument
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<section class="site-panel">
+  <h2>$subdocument</h2>
+  <p>Check that usage of the $subdocument filter option works as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the subdocuments/frames in each test case panel should be blocked but the images should not.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>Subdocument</h3><iframe src="/testcasefiles/subdocument/frame.html" class="blocked"></iframe>
+    </div>
+    <div class="testcase-row">
+      <h3>Image</h3><img class="testcase-image" src="/testcasefiles/subdocument/image.jpg"/>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}/testcasefiles/subdocument/$subdocument</pre>
+</section>

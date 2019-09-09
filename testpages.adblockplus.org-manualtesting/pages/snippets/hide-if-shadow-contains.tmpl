@@ -1,0 +1,30 @@
+title = hide-if-shadow-contains
+template = testcase
+
+<section class="site-panel">
+  <h2>hide-if-shadow-contains</h2>
+  <p>Check that basic usage of the hide-if-shadow-contains snippet is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+    <div></div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-shadow-contains 'HISCTarget' div</pre>
+</section>
+
+<script>
+  setTimeout(() =>
+  {
+    let ad = document.createElement("p");
+    ad.id = Math.random().toString(36).substring(2);
+    ad.className = "testcase-contentaside stripes-red"
+    ad.innerHTML = "<div>HISCTarget</div>";
+    let shadowRoot = document.getElementById("target").lastElementChild.attachShadow({mode: "closed"});
+    shadowRoot.appendChild(ad);
+  },
+  500);
+</script>

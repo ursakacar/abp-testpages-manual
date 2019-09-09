@@ -1,0 +1,17 @@
+{
+  "notifications": [
+    {
+      "id": "normal_basic",
+      "severity": "normal",
+      "title": {
+        "en-US": "Test NORMAL Notification",
+        "de": "DE Test NORMAL Notification"
+      },
+      "message": {
+        "en-US": "This is a NORMAL notification.",
+        "de": "DE This is a NORMAL notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

@@ -1,0 +1,139 @@
+title = $rewrite
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Cheatsheet - Blocking", "https://adblockplus.org/filter-cheatsheet#blocking"),
+] %}
+
+<section class="site-panel">
+  <h2>$rewrite</h2>
+  <p>Check that $rewrite functionality is working as expected.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Blank text</h2>
+  <div class="testcase-container">
+    <div id="testcase-output"></div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/text.txt$rewrite=abp-resource:blank-text,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<script>
+function aborted(evt) {
+  pagelog("XMLHTTPRequest was aborted.");
+}
+
+function failed(evt) {
+  pagelog("XMLHTTPRequest failed.");
+}
+
+function makerequest() {
+  var req = new XMLHttpRequest();
+  req.addEventListener("error", failed);
+  req.addEventListener("abort", aborted);
+  req.open("GET", "{{ site_url }}/testcasefiles/rewrite/text.txt", true);
+  req.onload = function(e) {
+    if (this.status == 200) {
+      pagelog(this.responseText);
+       }
+    };
+  req.send();
+}
+
+document.addEventListener('DOMContentLoaded', makerequest, false);
+</script>
+
+<section class="site-panel">
+  <h2>Blank CSS</h2>
+  <div class="testcase-container">
+    <div class="rewrite-style-target">Target
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/stylesheet.css$rewrite=abp-resource:blank-css,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<link rel="stylesheet" href="/testcasefiles/rewrite/stylesheet.css">
+
+<section class="site-panel">
+  <h2>Blank JS</h2>
+  <div class="testcase-container">
+    <div id="rewrite-js-target">Target
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/script.js$rewrite=abp-resource:blank-js,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<script src="/testcasefiles/rewrite/script.js"/></script>
+
+<section class="site-panel">
+  <h2>Blank HTML</h2>
+  <div class="testcase-container">
+    <iframe src="/testcasefiles/rewrite/frame.html"></iframe>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/frame.html$rewrite=abp-resource:blank-html,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Blank MP3</h2>
+  <p>Without filter you should hear a click. With filter you should hear nothing.</p>
+  <div class="testcase-container">
+    <audio controls src="/testcasefiles/rewrite/track.mp3">
+      Your browser does not support the <code>audio</code> element.
+    </audio>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/track.mp3$rewrite=abp-resource:blank-mp3,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Blank MP4</h2>
+  <p>Without filter video should play. With filter video should be blank.</p>
+  <div class="testcase-container">
+    <video controls="">
+      <source src="/testcasefiles/rewrite/video.mp4" type="video/mp4">
+      <p>Your browser does not support H.264/MP4.</p>
+    </video>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/video.mp4$rewrite=abp-resource:blank-mp4,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>1x1 GIF</h2>
+  <div class="testcase-container">
+    <img src="/testcasefiles/rewrite/1x1.jpg"/>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/1x1.jpg$rewrite=abp-resource:1x1-transparent-gif,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>2x2 PNG</h2>
+  <div class="testcase-container">
+    <img src="/testcasefiles/rewrite/2x2.jpg"/>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/2x2.jpg$rewrite=abp-resource:2x2-transparent-png,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>3x2 PNG</h2>
+  <div class="testcase-container">
+    <img src="/testcasefiles/rewrite/3x2.jpg"/>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/3x2.jpg$rewrite=abp-resource:3x2-transparent-png,domain={{ site_url|strip_proto }}</pre>
+</section>
+
+<section class="site-panel">
+  <h2>32x32 PNG</h2>
+  <div class="testcase-container">
+    <img src="/testcasefiles/rewrite/32x32.jpg"/>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/rewrite/32x32.jpg$rewrite=abp-resource:32x32-transparent-png,domain={{ site_url|strip_proto }}</pre>
+</section>

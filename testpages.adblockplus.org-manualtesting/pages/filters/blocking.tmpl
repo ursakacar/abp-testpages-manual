@@ -1,0 +1,43 @@
+title = Blocking
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Cheatsheet - Blocking", "https://adblockplus.org/filter-cheatsheet#blocking"),
+] %}
+
+<section class="site-panel">
+  <h2>Blocking</h2>
+  <p>Check that basic blocking functionality is working as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the test images in each test case panel should be blocked.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Complete Address</h2>
+  <div class="testcase-container">
+    <img class="testcase-contentaside blocked" src="/testcasefiles/blocking/addresscomplete/image.jpg">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/blocking/addresscomplete/image.jpg</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Part Address</h2>
+  <div class="testcase-container">
+    <img class="testcase-contentaside blocked" src="/testcasefiles/blocking/addresspart/abptestcasepath/image.jpg">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>/testcasefiles/blocking/addresspart/abptestcasepath/</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Wildcard</h2>
+  <div class="testcase-container">
+    <img class="testcase-contentaside blocked" src="/testcasefiles/blocking/wildcard/one/image.jpg">
+    <img class="testcase-contentaside blocked" src="/testcasefiles/blocking/wildcard/two/image.jpg">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/blocking/wildcard/*/image.jpg</pre>
+</section>

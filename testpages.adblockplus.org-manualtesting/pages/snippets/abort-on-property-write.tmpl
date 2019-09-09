@@ -1,0 +1,17 @@
+title = abort-on-property-write
+template = testcase
+
+<section class="site-panel">
+  <h2>abort-on-property-write</h2>
+  <p>Check that basic usage of the abort-on-property-write snippet is working as expected.</p>
+</section>
+
+<section class="site-panel">
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#abort-on-property-write adsShowing</pre>
+</section>
+
+<script src="/testcasefiles/snippets/abort-on-property-write.js"></script>

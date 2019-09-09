@@ -1,0 +1,23 @@
+title = strip-fetch-query-parameter
+template = testcase
+
+<section class="site-panel">
+  <h2>strip-fetch-query-parameter</h2>
+</section>
+
+<section class="site-panel">
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#strip-fetch-query-parameter foo example</pre>
+    <pre>{{ site_url|strip_proto }}#$#strip-fetch-query-parameter bar other</pre>
+</section>
+
+ <script>
+  setTimeout(() =>
+  {
+    fetch("https://example.com/?foo=1&bar=2");
+  },
+  500);
+</script>

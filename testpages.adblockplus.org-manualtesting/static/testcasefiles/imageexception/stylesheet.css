@@ -1,0 +1,11 @@
+.testcase-teststylesheet {
+  color: white;
+  background: red;
+  padding: .5rem;
+}
+
+.testcase-teststylesheet::after {
+  background: red;
+  content: "Stylesheet was loaded and applied to page.";
+}
+

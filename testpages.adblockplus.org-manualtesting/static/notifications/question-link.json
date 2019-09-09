@@ -1,0 +1,20 @@
+{
+  "notifications": [
+    {
+      "id": "question_basic",
+      "severity": "question",
+      "links": [
+        "contribute"
+      ],
+      "title": {
+        "en-US": "Test QUESTION Notification",
+        "de": "DE Test QUESTION Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>test</a> QUESTION notification.",
+        "de": "DE This is a <a>test</a> QUESTION notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

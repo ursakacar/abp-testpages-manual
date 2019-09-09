@@ -1,0 +1,45 @@
+title = lowercase-except-matchcase-7321
+template = testcase
+
+<section class="site-panel">
+  <h2>General behaviour - Lower case except match case - #7321</h2>
+</section>
+
+<section class="site-panel">
+  <h2>Special characters - All lower case</h2>
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+    <iframe src="/testcasefiles/general/lower!matchcase.html"></iframe>
+  </div>
+  <h3>Filters</h3>
+  <pre>/lower.matchcase/</pre>
+  <pre>/lower.matchcase/$match-case</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Special characters - Mixed case</h2>
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+    <iframe src="/testcasefiles/general/MiXeD!matchcase.html"></iframe>
+  </div>
+  <h3>Filters</h3>
+  <pre>/mixed.matchcase/</pre>
+  <pre>/mixed.matchcase/$match-case</pre>
+  <pre>/MiXeD.matchcase/$match-case</pre>
+</section>
+
+<section class="site-panel">
+  <h2>Match case</h2>
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+    <iframe src="/testcasefiles/general/foo/bar.html"></iframe>
+  </div>
+  <h3>Filters</h3>
+  <pre>/FoO/</pre>
+  <pre>/FoO/$match-case</pre>
+  <pre>/FoO/$~match-case</pre>
+  <pre>FoO^BaR</pre>
+  <pre>FoO^BaR$match-case</pre>
+  <pre>FoO^BaR$~match-case</pre>
+</section>
+

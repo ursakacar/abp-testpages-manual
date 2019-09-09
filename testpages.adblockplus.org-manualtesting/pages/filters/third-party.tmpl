@@ -1,0 +1,23 @@
+title = Third party
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Cheatsheet - Element Hiding", "https://adblockplus.org/filter-cheatsheet#elementhiding"),
+] %}
+
+<section class="site-panel">
+  <h2>Third party</h2>
+  <p>Check that basic usage of the third-party filter option is working as expected.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Third-party</h2>
+  <div class="testcase-container">
+    <h3>First party/same host</h3>
+    <img src="/testcasefiles/thirdparty/abb-logo.png"/>
+    <h3>Third party/different host</h3>
+    <img src="https://adblockplus.org/img/abb-logo.png"/>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|domain }}*abb-logo.png$third-party</pre>
+</section>

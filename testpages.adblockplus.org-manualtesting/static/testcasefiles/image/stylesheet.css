@@ -1,0 +1,11 @@
+.testcase-teststylesheet {
+  color: white;
+  background: green;
+  font-size: 1rem;
+}
+
+.testcase-teststylesheet::after {
+  background: green;
+  content: "Stylesheet was loaded and applied to page.";
+}
+

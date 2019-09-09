@@ -1,0 +1,31 @@
+title = $script Exception
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<section class="site-panel">
+  <h2>$script Exception</h2>
+  <p>Check that usage of the $script filter option in an exception filter works as expected.</p>
+  <p>With the filter(s) displayed below each test case added to ABP (or with the testcase subscription installed and active), the image should be blocked while the script should not be blocked.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>Image</h3>
+      <img class="blocked" src="/testcasefiles/scriptexception/image.jpg"/>
+    </div>
+    <div class="testcase-row">
+      <h3>Script</h3>
+      <div id="testcase-scripttarget">Script target</div>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/scriptexception/*</pre>
+  <pre>@@{{ site_url|strip_proto }}/testcasefiles/scriptexception/$script</pre>
+</section>
+
+<script src="/testcasefiles/scriptexception/script.js"></script>

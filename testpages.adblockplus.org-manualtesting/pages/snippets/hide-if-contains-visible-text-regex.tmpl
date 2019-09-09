@@ -1,0 +1,66 @@
+title = hide-if-contains-visible-text regex
+template = testcase
+
+<style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .transparent {
+    opacity: 0;
+    position: absolute;
+    display: block;
+  }
+  .zerosize {
+    font-size: 0;
+  }
+  div {
+    display: block;
+  }
+  .a {
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+  .transparent {
+    color: transparent;
+  }
+  .article {
+    overflow-wrap: break-word;
+  }
+</style>
+
+<section class="site-panel">
+  <h2>hide-if-contains-visible-text regex</h2>
+  <p>Check that basic usage of the hide-if-contains-visible-text with regex snippet is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <div id="target" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+
+    <div id="parent">
+      <div class="article">
+       <div class="label"><div class="a transparent">Sp</div><div class="a">Sp</div><div class="a zerosize">S</div><div class="a transparent">on</div><div class="a">on</div><div class="a zerosize">S</div>soredREHICVT1</div>
+  This is the ad.
+      </div>
+    </div>
+
+    <div id="parent">
+      <div class="article">
+       <div class="label"><div class="a transparent">Sp</div><div class="a">Sp</div><div class="a zerosize">S</div><div class="a transparent">on</div><div class="a">on</div><div class="a zerosize">S</div>soredREHICVT2</div>
+  This is the ad.
+      </div>
+    </div>
+
+    <div id="parent">
+      <div class="article">
+       <div class="label"><div class="a transparent">Sp</div><div class="a">Sp</div><div class="a zerosize">S</div><div class="a transparent">on</div><div class="a">on</div><div class="a zerosize">S</div>soredREHICVT3</div>
+  Not an ad
+      </div>
+    </div>
+
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-contains-visible-text /SponsoredREHICVT[1-2]/ '#parent > .article' '#parent > .article .label'</pre>
+</section>

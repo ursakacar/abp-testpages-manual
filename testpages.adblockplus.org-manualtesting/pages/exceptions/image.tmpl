@@ -1,0 +1,30 @@
+title = $image Exception
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<link rel="stylesheet" href="/testcasefiles/imageexception/stylesheet.css">
+
+<section class="site-panel">
+  <h2>$image Exception</h2>
+  <p>Check that usage of the $image filter option in an exception filter works as expected.</p>
+  <p>With the filter(s) displayed below each test case added to ABP (or with the testcase subscription installed and active), the image should not be blocked while the stylesheet should be.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <p>The image should not be blocked (exception). The stylesheet should be blocked.</p>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>Image</h3><img class="testcase-image" src="/testcasefiles/imageexception/image.jpg"/>
+    </div>
+    <div class="testcase-row">
+      <h3>Stylesheet</h3><div class="testcase-teststylesheet trap">&nbsp;</div>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>||{{ site_url|strip_proto }}/testcasefiles/imageexception/*</pre>
+  <pre>@@{{ site_url|strip_proto }}/testcasefiles/imageexception/$image</pre>
+</section>

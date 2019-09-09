@@ -1,0 +1,22 @@
+title = $match-case
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options")
+] %}
+
+<section class="site-panel">
+  <h2>$match-case</h2>
+  <p>Check that usage of the $match-case filter option works as expected.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <div class="testcase-container">
+    <img class="testcase-contentaside blocked" src="/testcasefiles/matchcase/1/abc.jpg">
+    <img class="testcase-contentaside" src="/testcasefiles/matchcase/2/ABC.jpg">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>/testcasefiles/matchcase/*/abc.jpg$match-case</pre>
+</section>

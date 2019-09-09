@@ -1,0 +1,29 @@
+title = $image
+template = testcase
+
+{% set testcase_moreinfo = [
+  ("Filter Options", "https://adblockplus.org/filters#options"),
+] %}
+
+<link rel="stylesheet" href="/testcasefiles/image/stylesheet.css">
+
+<section class="site-panel">
+  <h2>$image</h2>
+  <p>Check that usage of the $image filter option works as expected.</p>
+  <p>With the filter displayed below each test case added to ABP (or with the testcase subscription installed and active), the images in each test case panel should be blocked but the stylesheets should not.</p>
+</section>
+
+<section class="site-panel">
+  <h2>Test case</h2>
+  <p>The image should be blocked. The stylesheet should not be blocked</p>
+  <div class="testcase-container">
+    <div class="testcase-row">
+      <h3>Image</h3><img src="/testcasefiles/image/image.jpg" class="blocked"/>
+    </div>
+    <div class="testcase-row">
+      <h3>Stylesheet</h3><div class="testcase-teststylesheet"></div>
+    </div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}/testcasefiles/image/$image</pre>
+</section>

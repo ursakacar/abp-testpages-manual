@@ -1,0 +1,24 @@
+{
+  "notifications": [
+    {
+      "id": "links_5_popup",
+      "severity": "information",
+      "links": [
+        "contribute",
+        "contribute",
+        "contribute",
+        "contribute",
+        "contribute"
+      ],
+      "title": {
+        "en-US": "Test 5 Link Notification",
+        "de": "DE Test 5 Link Notification"
+      },
+      "message": {
+        "en-US": "This is a <a>Link1</a> and a <a>Link2</a> and a <a>Link3</a> and a <a>Link4</a> and a <a>Link5</a> Notification.",
+        "de": "DE This is a <a>Link1</a> and a <a>Link2</a> and a <a>Link3</a> and a <a>Link4</a> and a <a>Link5</a> Notification."
+      }
+    }
+  ],
+  "version": "201810011538"
+}

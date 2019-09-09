@@ -1,0 +1,37 @@
+title = hide-if-contains search selector
+template = testcase
+
+<section class="site-panel">
+  <h2>hide-if-contains search selector</h2>
+  <p>Check that basic usage of the hide-if-contains snippet with the search selector parameter is working as expected.</p>
+  <p></p>
+</section>
+
+<section class="site-panel">
+  <p>Only the second/red target should be hidden.</p>
+  <div id="target1" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <div id="target2" class="testcase-container">
+    <div class="testcase-content stripes-grey">Content</div>
+  </div>
+  <h3>Filters</h3>
+  <pre>{{ site_url|strip_proto }}#$#hide-if-contains 'HICSSTarget' p[id] .target</pre>
+</section>
+
+<script>
+  setTimeout(() =>
+  {
+    let ad = document.createElement("p");
+    ad.id = Math.random().toString(36).substring(2);
+    ad.className = "testcase-contentaside stripes-green"
+    ad.innerHTML = "<div>HICSSTarget</div>";
+    let ad2 = document.createElement("p");
+    ad2.id = Math.random().toString(36).substring(2);
+    ad2.className = "testcase-contentaside stripes-red target"
+    ad2.innerHTML = "<div>HICSSTarget</div>";
+    document.getElementById("target1").appendChild(ad);
+    document.getElementById("target2").appendChild(ad2);
+  },
+  500);
+</script>
